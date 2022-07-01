@@ -15,5 +15,6 @@ You can do git commands by using the watchlist.
 ## Example
 * `ro pull linux-configs`
 * `ro push linux-configs`
+
 Where "linux-configs" is a repository in the watchlist.
 You don't need to type the path no matter where you are as the repository-observer already knows the path.
