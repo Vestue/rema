@@ -1,4 +1,4 @@
-# repository-observer
+# rema - (Repository manager)
 The repository-observer prints information about your local repositories when there is a new commit avaible.
 
 ## Usage
@@ -12,9 +12,53 @@ You can set individual settings for each repository depending on how you want to
 
 You can do git commands by using the watchlist.
 
-## Example
-* `ro pull linux-configs`
-* `ro push linux-configs`
+### Specific clone
+- Pull a specific file or directory from a github repository.
 
-Where "linux-configs" is a repository in the watchlist.
-You don't need to type the path no matter where you are as the repository-observer already knows the path.
+### Categorization
+* `rema status gameRepos`
+
+### Sync files
+* Set up specific files or directories to be synced from your local machine and into the repository.
+
+Either by manually triggering the sync via `rema sync all` or `rema sync gameRepos` or by using a timer to sync it daily, weekly, etc.
+
+This is useful for syncing smaller files that you want availble anywhere, for example dotfiles or other configuration files.
+
+### Default clone location
+Set a default location for your repositories.
+
+Example:
+* `rema --default ~/Repos`
+* `rema clone https://github.com/Vestue/repository-observer.git`
+
+Will cause the cloned repository to be placed in the default directory.
+- The example would clone it into `~/Repos/repository-observer`
+
+## Example
+Assuming "linux-configs" is a repository in the watchlist.
+* `rema pull linux-configs`
+* `rema push linux-configs`
+* `rema status linux-configs`
+
+This will use all the git commands with the intended directory.
+You don't need to type the path no matter where you are as *rema* already knows the path.
+
+This can also be done for all watched repositories at the same time, giving details for each repo in the watchlist.
+* `rema status`
+
+It can also be done for categories.
+* `rema status gameRepos`
+* `rema pull gameRepos`
+* `rema push gameRepos`
+
+## Interface
+- Plenty of colorful options
+- The user can configure it from a configuration guide.
+- Pretty icons if the user wants, this requires a nerd-patched font.
+
+### Nerd-patching information
+
+## Installation
+* `rema --config`
+* `rema --configure`
