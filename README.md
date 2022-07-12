@@ -57,7 +57,10 @@ It can also be done for categories.
 - The user can configure it from a configuration guide.
 - Pretty icons if the user wants, this requires a nerd-patched font.
 
-### Nerd-patching information
+### Font
+I recommend installing a [nerd-fonts](https://github.com/ryanoasis/nerd-fonts) patched font as it will allow icons to be properly displayed.
+- You can either download a font that is available on [nerdfonts.com](https://www.nerdfonts.com/font-downloads)
+- Or patch your own font with their [font-patcher](https://github.com/ryanoasis/nerd-fonts#font-patcher)
 
 ## Installation
 * `rema --config`
