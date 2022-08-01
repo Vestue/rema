@@ -59,6 +59,12 @@ DefaultRepoLocation() {
 	then
 		PrintRepoLocation
 		return
+	elif [[ $# -eq 2 ]]
+	then
+		if [ `ls $2` -eq 0 ]
+		then
+			rg repo-default ../config/user | sed -i 's/repo-default=*\n/repo-default='$2''
+			echo "Changed default monitored directory to $2"
 	fi
 	
 	# Second argument changes the location

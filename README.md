@@ -65,3 +65,8 @@ I recommend installing a [nerd-fonts](https://github.com/ryanoasis/nerd-fonts) p
 ## Installation
 * `rema --config`
 * `rema --configure`
+
+### Dependencies
+* git
+* rg - (ripgrep)
+* sed
