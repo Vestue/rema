@@ -10,9 +10,11 @@ Main() {
 	# Setup colored prints
 	RED=`tput setaf 1`
 	GREEN=`tput setaf 2`
-    BLUE=`tput setaf 4`
-    YELLOW=`tput setaf 6`
-    RESET=`tput sgr0`
+  BLUE=`tput setaf 4`
+  YELLOW=`tput setaf 6`
+  RESET=`tput sgr0`
+
+  config_location = "../config/user"
 	
 	if [[ $# -eq 0 ]]
 	then
@@ -51,7 +53,7 @@ PrintHelp() {
 }
 
 PrintHelpShort() {
-	echo -e '\n{YELLOW}rema\n{RESET}Use `rema -h or rema --help to get more guidance.\n'
+	echo -e "\n{YELLOW}rema\n{RESET}Use 'rema -h' or 'rema --help' to get more guidance.\n"
 }
 
 DefaultRepoLocation() {
@@ -59,14 +61,17 @@ DefaultRepoLocation() {
 	then
 		PrintRepoLocation
 		return
+	
+	# Second argument changes the location
+	# Check if the location exists before changing it
 	elif [[ $# -eq 2 ]]
 	then
 		if [ `ls $2` -eq 0 ]
 		then
-			rg repo-default ../config/user | sed -i 's/repo-default=*\n/repo-default='$2''
-			echo "Changed default monitored directory to $2"
+			rg repo-default $config_location | sed -i 's/repo-default=*\n/repo-default='$2''
+			echo "{GREEN}Changed{RESET} default monitored directory to $2"
+		else
+			echo "Could not find directory{RED}!{RESET}"
+		fi
 	fi
-	
-	# Second argument changes the location
-	# Check if the location exists before changing it
 }
